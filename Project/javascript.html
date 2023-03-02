@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<!--
+	/*<p id="output" onclick="change_text()" onmouseover="change_text()">Default text</p>
+	<input onkeyup="pchange_text(this.value)"> -->
+	<img src="latte-image.png" id="my-image" onclick="update_image()">
+	<p id="output"> defult text </p>
+	<input id="user_number">
+	<button onclick="update_user()">Submit</button>
+	<script type="text/javascript">
+		function update_user(){
+			document.getElementById("output").style.color = "red";
+			document.getElementById("output").style.fontSize = "20px";
+			user_number = document.getElementById("user_number").value;
+
+			httpRequest = new XMLHttpRequest();
+			httpRequest.open("GET","https://reqres.in/api/users/" + user_number);
+			httpRequest.send();
+
+			httpRequest.onreadystatechange = function(){
+				if(this.readyState == 4 && this.status == 200){
+					user_data =JSON.parse(this.responseText);
+					document.getElementById("output").innerHTML= user_data.data.first_name;
+				}
+				}
+			}
+
+		function update_image(){
+			document.getElementById("my-image").src = "mocha-image.png";
+		}	
+
+	/*	function change_text(){
+			document.getElementById("output").innerHTML= "new text"
+		}
+		function pchange_text(text){
+			document.getElementById("output").innerHTML = text
+		}
+		var a = 20;
+		var b = 10;
+		if(a>b){
+			alert(" a is greater than b")
+		}
+		else{
+			alert("b is greater than a")
+		}
+	*/
+	</script>
+</body>
+</html>
